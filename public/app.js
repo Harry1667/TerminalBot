@@ -10,13 +10,35 @@ async function loadWindows() {
   const windows = await res.json();
   const current = targetWindowSelect.value;
   targetWindowSelect.innerHTML = '<option value="any">任何視窗（當前焦點）</option>';
-  windows.forEach(w => {
-    const opt = document.createElement('option');
-    opt.value = w;
-    opt.textContent = w;
-    if (w === current) opt.selected = true;
-    targetWindowSelect.appendChild(opt);
-  });
+
+  const visible = windows.filter(w => w.source === 'visible');
+  const recent = windows.filter(w => w.source === 'recent');
+
+  if (visible.length) {
+    const grp = document.createElement('optgroup');
+    grp.label = '目前開著';
+    visible.forEach(w => {
+      const opt = document.createElement('option');
+      opt.value = w.value;
+      opt.textContent = w.label;
+      if (w.value === current) opt.selected = true;
+      grp.appendChild(opt);
+    });
+    targetWindowSelect.appendChild(grp);
+  }
+
+  if (recent.length) {
+    const grp = document.createElement('optgroup');
+    grp.label = '最近開過';
+    recent.forEach(w => {
+      const opt = document.createElement('option');
+      opt.value = w.value;
+      opt.textContent = w.label;
+      if (w.value === current) opt.selected = true;
+      grp.appendChild(opt);
+    });
+    targetWindowSelect.appendChild(grp);
+  }
 }
 
 refreshWindowsBtn.addEventListener('click', () => {

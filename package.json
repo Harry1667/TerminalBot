@@ -1,0 +1,20 @@
+{
+  "name": "16-terminalbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@sqlitecloud/drivers": "^1.0.837",
+    "express": "^5.2.1",
+    "node-cron": "^4.2.1",
+    "sqlite3": "^6.0.1"
+  }
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TerminalBot</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>TerminalBot</h1>
+      <p class="subtitle">睡前設定，起床看成果</p>
+    </header>
+
+    <section class="form-section">
+      <div class="form-group">
+        <label>給 Claude 的指令</label>
+        <textarea id="prompt" placeholder="例如：我要寫一個關於狗狗的網站，請幫我建立完整的前端頁面" rows="3"></textarea>
+      </div>
+      <div class="form-group">
+        <label>目標視窗 <span class="refresh-btn" id="refreshWindows">↻ 重新整理</span></label>
+        <select id="target_window">
+          <option value="any">任何視窗（當前焦點）</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>執行時間</label>
+        <input type="datetime-local" id="scheduled_at">
+      </div>
+      <button id="addBtn" class="btn-primary">開始待機</button>
+    </section>
+
+    <section class="tasks-section">
+      <h2>排程清單</h2>
+      <div id="taskList"></div>
+    </section>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>

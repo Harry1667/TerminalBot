@@ -19,3 +19,27 @@
 npm start
 # → http://localhost:3700
 ```
+
+---
+
+## English
+
+A scheduled prompt-injection tool — fires text into macOS windows (VSCode, Terminal, and other Electron apps) at a chosen time, automating repetitive AI workflows.
+
+### Features
+- Schedule a task: prompt + run time + target window
+- Auto-detects open macOS Electron windows
+- At the scheduled moment, types the text and submits it (driven by AppleScript)
+- Web UI for managing tasks (port 3700)
+- Tasks persisted in SQLite
+
+### Tech stack
+- Node.js + Express
+- SQLite + node-cron
+- AppleScript (macOS window control)
+
+### Run
+```bash
+npm start
+# → http://localhost:3700
+```
